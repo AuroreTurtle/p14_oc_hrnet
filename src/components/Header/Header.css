@@ -27,12 +27,31 @@ h1{
 
 /* Tablet and Desktop */
 @media (min-width: 768px){
+    header{
+        margin-left: 20px;
+        margin-right: 50px;
+    }
+
     .header-logo{
-        width: 80px;
+        width: 70px;
     }
 
     h1{
         font-size: 32px;
+    }
+
+    .header-link{
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 1000px){
+    header{
+        margin-right: 10px;
+    }
+
+    h1{
+        margin-left: 8%;
     }
 
     .header-link{
