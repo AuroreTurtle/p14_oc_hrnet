@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
-import Logo from "../../assets/logo.png";
+import LogoHRnet from "../../assets/logo-HRnet.png";
 
 function Header() {
     return (
         <header>
             <Link to="/">
-                <img className="header-logo" src={Logo} alt="Logo HRnet" />
+                <img className="header-logo" src={LogoHRnet} alt="Logo HRnet" />
+                <h1 className="sr-only">HRnet</h1>
             </Link>
-            <h1>HRnet</h1>
-            <Link to="/employee-list" className="header-link header-desktop">
-                View Current Employees
-            </Link>
-            <Link to="/employee-list" className="header-link header-mobile">
-                <i className="fa-solid fa-users"></i>
-            </Link>
+            <nav>
+                <Link to="/employee-list" className="header-link header-desktop">
+                    View Current Employees
+                </Link>
+                <Link to="/employee-list" className="header-link header-mobile">
+                    <i className="fa-solid fa-users"></i>
+                </Link>
+            </nav>
         </header>
     );
 }

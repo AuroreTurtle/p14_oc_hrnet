@@ -1,4 +1,26 @@
 footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+
+/* Mobile */
+.footer-logo{
+    width: 60px;
+}
+
+/* Tablet */
+@media (min-width: 768px){
+    .footer-logo{
+        width: 80px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1000px){
+    footer{
+        padding-top: 3%;
+    }
 }
