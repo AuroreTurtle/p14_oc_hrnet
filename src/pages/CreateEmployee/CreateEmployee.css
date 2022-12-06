@@ -1,0 +1,43 @@
+main {
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #2b7ce067;
+}
+
+.container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+}
+
+.address {
+    margin-top: 10px;
+}
+
+button{
+    display: block;
+    width: 90%;
+    padding: 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border-color: #16249C;
+    background-color: #16249C;
+    color: #fff;
+}
