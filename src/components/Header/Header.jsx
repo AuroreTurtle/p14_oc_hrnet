@@ -10,6 +10,13 @@ function Header() {
                 <h1 className="sr-only">HRnet</h1>
             </Link>
             <nav>
+                <Link to="/" className="header-link header-desktop">
+                    Create Employees
+                </Link>
+                <Link to="/" className="header-link header-mobile">
+                    <i className="fa-solid fa-user-plus"></i>
+                </Link>
+
                 <Link to="/employee-list" className="header-link header-desktop">
                     View Current Employees
                 </Link>
