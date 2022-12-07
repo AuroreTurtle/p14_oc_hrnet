@@ -5,7 +5,7 @@ import "./CreateEmployee.css";
 function CreateEmployee() {
     return (
         <main>
-            <div className="container">
+            <div className="container container-form">
                 <h2>Create Employee</h2>
                 <form action="#" id="create-employee">
                     <label htmlFor="first-name">First Name</label>
