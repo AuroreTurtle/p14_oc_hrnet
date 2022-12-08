@@ -1,8 +1,48 @@
+import { useState } from "react";
 import states from "../../data/states";
 import departments from "../../data/departments";
 import "./CreateEmployee.css";
+import Modal from "../../components/Modal/Modal";
 
 function CreateEmployee() {
+    const [modalVisible, setModalVisible] = useState(false);
+
+    const toggleModal = () => {
+        setModalVisible((current) => !current);
+    };
+
+    const saveEmployee = (e) => {
+        e.preventDefault();
+
+        const firstName = document.getElementById("first-name");
+        const lastName = document.getElementById("last-name");
+        const dateOfBirth = document.getElementById("date-of-birth");
+        const startDate = document.getElementById("start-date");
+        const department = document.getElementById("department");
+        const street = document.getElementById("street");
+        const city = document.getElementById("city");
+        const state = document.getElementById("state");
+        const zipCode = document.getElementById("zip-code");
+
+        const employees = JSON.parse(localStorage.getItem("employees")) || [];
+        const employee = {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            dateOfBirth: dateOfBirth.value,
+            startDate: startDate.value,
+            department: department.value,
+            street: street.value,
+            city: city.value,
+            state: state.value,
+            zipCode: zipCode.value,
+        };
+        employees.push(employee);
+        localStorage.setItem("employees", JSON.stringify(employees));
+
+        console.log(employee);
+        setModalVisible(true);
+    };
+
     return (
         <main>
             <div className="container container-form">
@@ -15,10 +55,10 @@ function CreateEmployee() {
                     <input type="text" id="last-name" />
 
                     <label htmlFor="date-of-birth">Date of Birth</label>
-                    <input id="date-of-birth" type="text" />
+                    <input id="date-of-birth" type="date" />
 
                     <label htmlFor="start-date">Start Date</label>
-                    <input id="start-date" type="text" />
+                    <input id="start-date" type="date" />
 
                     <fieldset className="address">
                         <legend>Address</legend>
@@ -50,13 +90,12 @@ function CreateEmployee() {
                     </select>
                 </form>
 
-                {/* <button onClick="saveEmployee()">Save</button> */}
-                <button type="submit">Save</button>
+                <button type="submit" className="button-submit" onClick={saveEmployee}>
+                    Save
+                </button>
             </div>
 
-            {/* <div id="confirmation" className="modal">
-                Employee Created!
-            </div> */}
+            {modalVisible && <Modal closeModal={toggleModal} />}
         </main>
     );
 }
