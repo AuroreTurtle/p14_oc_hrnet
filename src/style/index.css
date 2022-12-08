@@ -9,6 +9,17 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+button{
+    display: block;
+    padding: 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border-color: #16249C;
+    background-color: #16249C;
+    color: #fff;
+}
+
 /* Mobile */
 header, footer {
     margin-left: 10px;
