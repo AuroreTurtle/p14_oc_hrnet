@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createEmployee } from "../../feature/employee.slice";
 import states from "../../data/states";
 import departments from "../../data/departments";
 import "./CreateEmployee.css";
 import Modal from "../../components/Modal/Modal";
 
 function CreateEmployee() {
+    const dispatch = useDispatch();
+    const employees = useSelector((state) => state.employeeList.employee);
+
     const [modalVisible, setModalVisible] = useState(false);
 
     const toggleModal = () => {
@@ -14,6 +19,7 @@ function CreateEmployee() {
     const saveEmployee = (e) => {
         e.preventDefault();
 
+        const form = document.getElementById("create-employee");
         const firstName = document.getElementById("first-name");
         const lastName = document.getElementById("last-name");
         const dateOfBirth = document.getElementById("date-of-birth");
@@ -24,7 +30,6 @@ function CreateEmployee() {
         const state = document.getElementById("state");
         const zipCode = document.getElementById("zip-code");
 
-        const employees = JSON.parse(localStorage.getItem("employees")) || [];
         const employee = {
             firstName: firstName.value,
             lastName: lastName.value,
@@ -36,11 +41,13 @@ function CreateEmployee() {
             state: state.value,
             zipCode: zipCode.value,
         };
-        employees.push(employee);
-        localStorage.setItem("employees", JSON.stringify(employees));
 
-        console.log(employee);
+        dispatch(createEmployee([...employees, employee]));
+        console.log(employees);
+
         setModalVisible(true);
+
+        form.reset();
     };
 
     return (
