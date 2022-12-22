@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createEmployee } from "../../feature/employee.slice";
+
 import states from "../../data/states";
 import departments from "../../data/departments";
+
+import Modal from "react-modal-component-library";
+import "react-modal-component-library/dist/index.css";
 import "./CreateEmployee.css";
-import Modal from "../../components/Modal/Modal";
 
 function CreateEmployee() {
     const dispatch = useDispatch();
@@ -12,8 +15,8 @@ function CreateEmployee() {
 
     const [modalVisible, setModalVisible] = useState(false);
 
-    const toggleModal = () => {
-        setModalVisible((current) => !current);
+    const closeModal = () => {
+        setModalVisible(false);
     };
 
     const saveEmployee = (e) => {
@@ -102,7 +105,7 @@ function CreateEmployee() {
                 </button>
             </div>
 
-            {modalVisible && <Modal closeModal={toggleModal} />}
+            {modalVisible && <Modal text="Employee Created !" closeModal={closeModal} />}
         </main>
     );
 }
