@@ -1,3 +1,13 @@
 .container-table {
     padding: 2%;
+    width: 90%;
+}
+
+.css-80pr5n-MuiPaper-root{
+    width: 100%;
+}
+
+.css-80pr5n-MuiPaper-root th, .css-80pr5n-MuiPaper-root td {
+    width: auto;
+    min-width: auto;
 }
