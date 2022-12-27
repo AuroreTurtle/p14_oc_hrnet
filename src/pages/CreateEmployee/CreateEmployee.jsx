@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createEmployee } from "../../feature/employee.slice";
 
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import TextField from "@mui/material/TextField";
+
 import states from "../../data/states";
 import departments from "../../data/departments";
 
@@ -13,6 +16,8 @@ function CreateEmployee() {
     const dispatch = useDispatch();
     const employees = useSelector((state) => state.employeeList.employee);
 
+    const [birthDate, setBirthDate] = useState(new Date());
+    const [startingDate, setStartingDate] = useState(new Date());
     const [modalVisible, setModalVisible] = useState(false);
 
     const closeModal = () => {
@@ -25,8 +30,6 @@ function CreateEmployee() {
         const form = document.getElementById("create-employee");
         const firstName = document.getElementById("first-name");
         const lastName = document.getElementById("last-name");
-        const dateOfBirth = document.getElementById("date-of-birth");
-        const startDate = document.getElementById("start-date");
         const department = document.getElementById("department");
         const street = document.getElementById("street");
         const city = document.getElementById("city");
@@ -36,8 +39,8 @@ function CreateEmployee() {
         const employee = {
             firstName: firstName.value,
             lastName: lastName.value,
-            dateOfBirth: dateOfBirth.value,
-            startDate: startDate.value,
+            dateOfBirth: new Date(birthDate).toDateString(),
+            startDate: new Date(startingDate).toDateString(),
             department: department.value,
             street: street.value,
             city: city.value,
@@ -65,10 +68,26 @@ function CreateEmployee() {
                     <input type="text" id="last-name" />
 
                     <label htmlFor="date-of-birth">Date of Birth</label>
-                    <input id="date-of-birth" type="date" />
+                    <DatePicker
+                        className="date-of-birth"
+                        renderInput={(params) => {
+                            return <TextField {...params} />;
+                        }}
+                        onChange={(birthDateValue) => setBirthDate(birthDateValue)}
+                        value={birthDate}
+                        views={["year", "month", "day"]}
+                    />
 
                     <label htmlFor="start-date">Start Date</label>
-                    <input id="start-date" type="date" />
+                    <DatePicker
+                        className="start-date"
+                        renderInput={(params) => {
+                            return <TextField {...params} />;
+                        }}
+                        onChange={(startDateValue) => setStartingDate(startDateValue)}
+                        value={startingDate}
+                        views={["year", "month", "day"]}
+                    />
 
                     <fieldset className="address">
                         <legend>Address</legend>

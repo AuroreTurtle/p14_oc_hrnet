@@ -4,6 +4,14 @@
     padding-bottom: 2%;
 }
 
+.container-form input{
+    width: 95%;
+}
+
+.container-form select{
+    width: 100%;
+}
+
 label {
     display: block;
     margin-top: 1rem;
@@ -16,5 +24,13 @@ label {
 
 .button-submit{
     width: 90%;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 5%;
+}
+
+/* Desktop */
+@media (min-width: 1000px){
+    .button-submit{
+        margin-bottom: 2%;
+    }
 }
