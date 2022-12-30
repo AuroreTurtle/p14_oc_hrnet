@@ -4,11 +4,16 @@
     padding-bottom: 2%;
 }
 
-.container-form input{
-    width: 95%;
+.error-text{
+    color: rgb(255, 0, 0);
 }
 
-.container-form select{
+.container-form input{
+    width: 95%;
+    padding: 10px 5px;
+}
+
+.container-form .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
     width: 100%;
 }
 
