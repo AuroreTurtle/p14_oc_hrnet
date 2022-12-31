@@ -11,10 +11,31 @@
 .container-form input{
     width: 95%;
     padding: 10px 5px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+
+.container-form input:focus{
+    outline: 2px solid #2b7ce0;
 }
 
 .container-form .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
     width: 100%;
+    font-family: 'Times New Roman', sans-serif;
+}
+
+.container-form .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    border: 1px solid #c4c4c4;;
+    border-radius: 5px;
+}
+
+.container-form .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    border-color: #ffffff;
+    font-family: 'Times New Roman', sans-serif;
+}
+
+.container-form .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input:focus{
+    outline: 1px solid #ffffff;
 }
 
 label {
