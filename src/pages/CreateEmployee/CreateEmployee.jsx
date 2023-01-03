@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createEmployee } from "../../feature/employee.slice";
 
@@ -23,7 +23,9 @@ function CreateEmployee() {
     const {
         register,
         handleSubmit,
+        formState,
         formState: { errors },
+        reset,
     } = useForm();
 
     const [birthDate, setBirthDate] = useState(null);
@@ -36,10 +38,7 @@ function CreateEmployee() {
         setModalVisible(false);
     };
 
-    const saveEmployee = (e) => {
-        // e.preventDefault();
-
-        const form = document.getElementById("create-employee");
+    const saveEmployee = () => {
         const firstName = document.getElementById("first-name");
         const lastName = document.getElementById("last-name");
         const street = document.getElementById("street");
@@ -62,13 +61,24 @@ function CreateEmployee() {
         console.log(employees);
 
         setModalVisible(true);
-
-        form.reset();
-        setBirthDate(null);
-        setStartingDate(null);
-        setStateName("");
-        setDepartmentName("");
     };
+
+    // To reset after check
+    useEffect(() => {
+        if (formState.isSubmitSuccessful) {
+            reset({
+                firstname: "",
+                lastname: "",
+                dateBirth: setBirthDate(null),
+                startDate: setStartingDate(null),
+                street: "",
+                city: "",
+                state: setStateName(""),
+                zipcode: "",
+                department: setDepartmentName(""),
+            });
+        }
+    }, [formState, reset]);
 
     return (
         <main>
@@ -226,8 +236,21 @@ function CreateEmployee() {
                         {errors.state && <p className="error-text">State required</p>}
 
                         <label htmlFor="zip-code">Zip Code</label>
-                        <input id="zip-code" type="number" {...register("zipcode", { required: true })} />
-                        {errors.zipcode && <p className="error-text">Zip Code required</p>}
+                        <input
+                            id="zip-code"
+                            type="number"
+                            {...register("zipcode", {
+                                required: {
+                                    value: true,
+                                    message: "Zip Code required",
+                                },
+                                pattern: {
+                                    value: /^\d{5}?$/,
+                                    message: "5 numbers are required",
+                                },
+                            })}
+                        />
+                        {errors.zipcode && <p className="error-text">{errors.zipcode.message}</p>}
                     </fieldset>
 
                     <label htmlFor="department">Department</label>
