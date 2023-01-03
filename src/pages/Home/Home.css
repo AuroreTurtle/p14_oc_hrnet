@@ -1,0 +1,39 @@
+.container-home{
+    padding: 4%;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-item {
+    flex: 1;
+    padding: 1rem;
+}
+
+.feature-icon {
+    width: 80px;
+    border: 5px solid #2b7ce067;
+    border-radius: 40%;
+    padding: 1rem;
+}
+
+/* Desktop */
+@media (min-width: 1000px){
+    .container-home{
+        padding: 2%;
+    }
+
+    .features {
+        flex-direction: row;
+    }
+
+    .feature-item {
+        padding: 1.5rem;
+    }
+
+    .feature-icon {
+        width: 90px;
+    }
+}
