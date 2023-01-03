@@ -1,0 +1,52 @@
+/* Mobile */
+.container-error{
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+.container-error span {
+    font-size: 96px;
+    font-weight: 700;
+}
+
+#error-text{
+    text-align: center;
+    font-size: 20px;
+    width: 260px;
+    margin: 0 0 5% 0;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) 
+{
+    .container-error{
+        padding: 2%;
+    }
+
+    .container-error span {
+        font-size: 120px;
+    }
+
+    #error-text{
+        font-size: 26px;
+        width: 100%;
+        margin-top: 2%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1000px) 
+{
+    .container-error{
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    .container-error span {
+        font-size: 150px;
+    }
+
+    #error-text{
+        font-size: 36px;
+    }
+}

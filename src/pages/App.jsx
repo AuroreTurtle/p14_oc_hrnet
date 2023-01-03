@@ -5,6 +5,7 @@ import Header from "../components/Header/Header";
 import Home from "./Home/Home";
 import CreateEmployee from "./CreateEmployee/CreateEmployee";
 import EmployeeList from "./EmployeeList/EmployeeList";
+import Error from "./Error/Error";
 import Footer from "../components/Footer/Footer";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/create-employee" element={<CreateEmployee />} />
                     <Route path="/employee-list" element={<EmployeeList />} />
+                    <Route path="*" element={<Error />} />
                 </Routes>
                 <Footer />
             </LocalizationProvider>
