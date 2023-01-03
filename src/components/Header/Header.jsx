@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import LogoHRnet from "../../assets/logo-HRnet.png";
 
+/**
+ * It returns React Component that displays the header.
+ * @returns A React component.
+ */
 function Header() {
     return (
         <header>
@@ -9,6 +13,7 @@ function Header() {
                 <img className="header-logo" src={LogoHRnet} alt="Logo HRnet" />
                 <h1 className="sr-only">HRnet</h1>
             </Link>
+            
             <nav>
                 <Link to="/create-employee" className="link header-link header-desktop">
                     Create Employees

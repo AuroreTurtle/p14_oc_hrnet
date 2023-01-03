@@ -1,6 +1,10 @@
 import "./Footer.css";
 import LogoWH from "../../assets/logo-WealthHealth.png";
 
+/**
+ * It returns React Component that displays the footer.
+ * @returns A React component.
+ */
 function Footer() {
     return (
         <footer>

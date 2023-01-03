@@ -3,6 +3,10 @@ import "./Home.css";
 import IconAddEmployee from "../../assets/icon-add-employee.png";
 import IconListEmployee from "../../assets/icon-list-employee.png";
 
+/**
+ * It returns React Component that displays the home page.
+ * @returns A React element.
+ */
 function Home() {
     return (
         <main>

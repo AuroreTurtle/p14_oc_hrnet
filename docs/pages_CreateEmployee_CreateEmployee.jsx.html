@@ -1,4 +1,32 @@
-import { useState, useEffect } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/CreateEmployee/CreateEmployee.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/CreateEmployee/CreateEmployee.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from "react";
 
 // Redux Toolkit
 import { useDispatch, useSelector } from "react-redux";
@@ -92,12 +120,12 @@ function CreateEmployee() {
     }, [formState, reset]);
 
     return (
-        <main>
-            <div className="container container-form">
-                <h2>Create Employee</h2>
-                <form action="#" id="create-employee">
-                    <label htmlFor="first-name">First Name</label>
-                    <input
+        &lt;main>
+            &lt;div className="container container-form">
+                &lt;h2>Create Employee&lt;/h2>
+                &lt;form action="#" id="create-employee">
+                    &lt;label htmlFor="first-name">First Name&lt;/label>
+                    &lt;input
                         type="text"
                         id="first-name"
                         {...register("firstname", {
@@ -115,10 +143,10 @@ function CreateEmployee() {
                             },
                         })}
                     />
-                    {errors.firstname && <p className="error-text">{errors.firstname.message}</p>}
+                    {errors.firstname &amp;&amp; &lt;p className="error-text">{errors.firstname.message}&lt;/p>}
 
-                    <label htmlFor="last-name">Last Name</label>
-                    <input
+                    &lt;label htmlFor="last-name">Last Name&lt;/label>
+                    &lt;input
                         type="text"
                         id="last-name"
                         {...register("lastname", {
@@ -136,14 +164,14 @@ function CreateEmployee() {
                             },
                         })}
                     />
-                    {errors.lastname && <p className="error-text">{errors.lastname.message}</p>}
+                    {errors.lastname &amp;&amp; &lt;p className="error-text">{errors.lastname.message}&lt;/p>}
 
-                    <label htmlFor="date-of-birth">Date of Birth</label>
-                    <DatePicker
+                    &lt;label htmlFor="date-of-birth">Date of Birth&lt;/label>
+                    &lt;DatePicker
                         className="date-of-birth"
                         renderInput={(params) => {
                             return (
-                                <TextField
+                                &lt;TextField
                                     {...params}
                                     {...register("dateBirth", { required: true, value: { birthDate } })}
                                 />
@@ -156,14 +184,14 @@ function CreateEmployee() {
                         value={birthDate}
                         views={["year", "month", "day"]}
                     />
-                    {errors.dateBirth && <p className="error-text">Date of birth required</p>}
+                    {errors.dateBirth &amp;&amp; &lt;p className="error-text">Date of birth required&lt;/p>}
 
-                    <label htmlFor="start-date">Start Date</label>
-                    <DatePicker
+                    &lt;label htmlFor="start-date">Start Date&lt;/label>
+                    &lt;DatePicker
                         className="start-date"
                         renderInput={(params) => {
                             return (
-                                <TextField
+                                &lt;TextField
                                     {...params}
                                     {...register("startDate", { required: true, value: { startingDate } })}
                                 />
@@ -176,13 +204,13 @@ function CreateEmployee() {
                         value={startingDate}
                         views={["year", "month", "day"]}
                     />
-                    {errors.startDate && <p className="error-text">Start date required</p>}
+                    {errors.startDate &amp;&amp; &lt;p className="error-text">Start date required&lt;/p>}
 
-                    <fieldset className="address">
-                        <legend>Address</legend>
+                    &lt;fieldset className="address">
+                        &lt;legend>Address&lt;/legend>
 
-                        <label htmlFor="street">Street</label>
-                        <input
+                        &lt;label htmlFor="street">Street&lt;/label>
+                        &lt;input
                             id="street"
                             type="text"
                             {...register("street", {
@@ -196,10 +224,10 @@ function CreateEmployee() {
                                 },
                             })}
                         />
-                        {errors.street && <p className="error-text">{errors.street.message}</p>}
+                        {errors.street &amp;&amp; &lt;p className="error-text">{errors.street.message}&lt;/p>}
 
-                        <label htmlFor="city">City</label>
-                        <input
+                        &lt;label htmlFor="city">City&lt;/label>
+                        &lt;input
                             id="city"
                             type="text"
                             {...register("city", {
@@ -217,10 +245,10 @@ function CreateEmployee() {
                                 },
                             })}
                         />
-                        {errors.city && <p className="error-text">{errors.city.message}</p>}
+                        {errors.city &amp;&amp; &lt;p className="error-text">{errors.city.message}&lt;/p>}
 
-                        <label htmlFor="state">State</label>
-                        <Select
+                        &lt;label htmlFor="state">State&lt;/label>
+                        &lt;Select
                             id="state"
                             value={stateName}
                             onChange={(event) => {
@@ -231,23 +259,23 @@ function CreateEmployee() {
                             }}
                             displayEmpty
                         >
-                            <MenuItem disabled value="">
+                            &lt;MenuItem disabled value="">
                                 -- Select a state --
-                            </MenuItem>
+                            &lt;/MenuItem>
                             {states.map((state) => (
-                                <MenuItem
+                                &lt;MenuItem
                                     key={state.abbreviation}
                                     value={state.abbreviation}
                                     {...register("state", { required: true })}
                                 >
                                     {state.name}
-                                </MenuItem>
+                                &lt;/MenuItem>
                             ))}
-                        </Select>
-                        {errors.state && <p className="error-text">State required</p>}
+                        &lt;/Select>
+                        {errors.state &amp;&amp; &lt;p className="error-text">State required&lt;/p>}
 
-                        <label htmlFor="zip-code">Zip Code</label>
-                        <input
+                        &lt;label htmlFor="zip-code">Zip Code&lt;/label>
+                        &lt;input
                             id="zip-code"
                             type="number"
                             {...register("zipcode", {
@@ -261,11 +289,11 @@ function CreateEmployee() {
                                 },
                             })}
                         />
-                        {errors.zipcode && <p className="error-text">{errors.zipcode.message}</p>}
-                    </fieldset>
+                        {errors.zipcode &amp;&amp; &lt;p className="error-text">{errors.zipcode.message}&lt;/p>}
+                    &lt;/fieldset>
 
-                    <label htmlFor="department">Department</label>
-                    <Select
+                    &lt;label htmlFor="department">Department&lt;/label>
+                    &lt;Select
                         id="department"
                         value={departmentName}
                         onChange={(e) => {
@@ -276,30 +304,53 @@ function CreateEmployee() {
                         }}
                         displayEmpty
                     >
-                        <MenuItem disabled value="">
+                        &lt;MenuItem disabled value="">
                             -- Select a department --
-                        </MenuItem>
+                        &lt;/MenuItem>
                         {departments.map((department) => (
-                            <MenuItem
+                            &lt;MenuItem
                                 key={department}
                                 value={department}
                                 {...register("department", { required: true })}
                             >
                                 {department}
-                            </MenuItem>
+                            &lt;/MenuItem>
                         ))}
-                    </Select>
-                    {errors.department && <p className="error-text">Department required</p>}
-                </form>
+                    &lt;/Select>
+                    {errors.department &amp;&amp; &lt;p className="error-text">Department required&lt;/p>}
+                &lt;/form>
 
-                <button type="submit" className="button-submit" onClick={handleSubmit(saveEmployee)}>
+                &lt;button type="submit" className="button-submit" onClick={handleSubmit(saveEmployee)}>
                     Save
-                </button>
-            </div>
+                &lt;/button>
+            &lt;/div>
 
-            {modalVisible && <Modal text="Employee Created !" closeModal={closeModal} />}
-        </main>
+            {modalVisible &amp;&amp; &lt;Modal text="Employee Created !" closeModal={closeModal} />}
+        &lt;/main>
     );
 }
 
 export default CreateEmployee;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CreateEmployee">CreateEmployee</a></li><li><a href="global.html#EmployeeList">EmployeeList</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 03 2023 16:50:02 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

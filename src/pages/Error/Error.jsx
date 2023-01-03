@@ -1,5 +1,9 @@
 import "./Error.css";
 
+/**
+ * It returns a React component that displays an error message.
+ * @returns A React component.
+ */
 function Error() {
     return (
         <main>

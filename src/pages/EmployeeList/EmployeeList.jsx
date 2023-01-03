@@ -1,8 +1,15 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
+
+// Component of the Material React Table library
 import MaterialReactTable from "material-react-table";
+
 import "./EmployeeList.css";
 
+/**
+ * It returns React Component that displays a list of employees in table.
+ * @returns A React component.
+ */
 function EmployeeList() {
     const employees = useSelector((state) => state.employeeList.employee);
     const columns = useMemo(
