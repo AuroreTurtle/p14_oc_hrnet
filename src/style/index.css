@@ -20,12 +20,6 @@ button{
     color: #fff;
 }
 
-/* Mobile */
-header, footer {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
 .link{
     text-decoration: none;
     color: #000000;
@@ -46,6 +40,12 @@ main {
     justify-content: center;
     background-color: rgb(255, 255, 255);
     border-radius: 7px;
+}
+
+/* Mobile */
+header, footer {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /* Tablet */
