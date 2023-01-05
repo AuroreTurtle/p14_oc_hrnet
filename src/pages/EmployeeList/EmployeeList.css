@@ -3,11 +3,11 @@
     width: 90%;
 }
 
-.css-80pr5n-MuiPaper-root{
+#table-employees{ 
     width: 100%;
 }
 
-.css-80pr5n-MuiPaper-root th, .css-80pr5n-MuiPaper-root td {
+#table-employees th, #table-employees td {
     width: auto;
     min-width: auto;
 }

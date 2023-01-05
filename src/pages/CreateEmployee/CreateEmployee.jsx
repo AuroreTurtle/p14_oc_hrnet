@@ -140,10 +140,10 @@ function CreateEmployee() {
 
                     <label htmlFor="date-of-birth">Date of Birth</label>
                     <DatePicker
-                        className="date-of-birth"
                         renderInput={(params) => {
                             return (
                                 <TextField
+                                    id="date-of-birth"
                                     {...params}
                                     {...register("dateBirth", { required: true, value: { birthDate } })}
                                 />
@@ -160,10 +160,10 @@ function CreateEmployee() {
 
                     <label htmlFor="start-date">Start Date</label>
                     <DatePicker
-                        className="start-date"
                         renderInput={(params) => {
                             return (
                                 <TextField
+                                    id="start-date"
                                     {...params}
                                     {...register("startDate", { required: true, value: { startingDate } })}
                                 />

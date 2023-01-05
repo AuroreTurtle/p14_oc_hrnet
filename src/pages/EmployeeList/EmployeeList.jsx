@@ -58,7 +58,9 @@ function EmployeeList() {
         <main>
             <div id="employee-div" className="container container-table">
                 <h2>Current Employees</h2>
-                <MaterialReactTable columns={columns} data={employees} />
+                <div id="table-employees">
+                    <MaterialReactTable columns={columns} data={employees} />
+                </div>
             </div>
         </main>
     );
