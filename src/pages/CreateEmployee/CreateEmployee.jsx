@@ -9,7 +9,7 @@ import states from "../../data/states";
 import departments from "../../data/departments";
 
 // Hook for form validation
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
 // Components (DatePicker and Select) of the MUI library
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -23,7 +23,7 @@ import "react-modal-component-library/dist/index.css";
 import "./CreateEmployee.css";
 
 /**
- * It returns React Component that displays a form to create an employee. 
+ * It returns React Component that displays a form to create an employee.
  * If the form is correct, a modal of validation displays else messages error display.
  * @returns A React component.
  */
@@ -36,11 +36,10 @@ function CreateEmployee() {
         handleSubmit,
         formState,
         formState: { errors },
+        control,
         reset,
     } = useForm();
 
-    const [birthDate, setBirthDate] = useState(null);
-    const [startingDate, setStartingDate] = useState(null);
     const [stateName, setStateName] = useState("");
     const [departmentName, setDepartmentName] = useState("");
     const [modalVisible, setModalVisible] = useState(false);
@@ -52,6 +51,8 @@ function CreateEmployee() {
     const saveEmployee = () => {
         const firstName = document.getElementById("first-name");
         const lastName = document.getElementById("last-name");
+        const birthDate = document.getElementById("date-of-birth");
+        const startingDate = document.getElementById("start-date");
         const street = document.getElementById("street");
         const city = document.getElementById("city");
         const zipCode = document.getElementById("zip-code");
@@ -59,8 +60,8 @@ function CreateEmployee() {
         const employee = {
             firstName: firstName.value,
             lastName: lastName.value,
-            dateOfBirth: birthDate,
-            startDate: startingDate,
+            dateOfBirth: birthDate.value,
+            startDate: startingDate.value,
             department: departmentName,
             street: street.value,
             city: city.value,
@@ -80,8 +81,6 @@ function CreateEmployee() {
             reset({
                 firstname: "",
                 lastname: "",
-                dateBirth: setBirthDate(null),
-                startDate: setStartingDate(null),
                 street: "",
                 city: "",
                 state: setStateName(""),
@@ -139,42 +138,48 @@ function CreateEmployee() {
                     {errors.lastname && <p className="error-text">{errors.lastname.message}</p>}
 
                     <label htmlFor="date-of-birth">Date of Birth</label>
-                    <DatePicker
-                        renderInput={(params) => {
-                            return (
-                                <TextField
-                                    id="date-of-birth"
-                                    {...params}
-                                    {...register("dateBirth", { required: true, value: { birthDate } })}
-                                />
-                            );
+                    <Controller
+                        control={control}
+                        rules={{
+                            required: true,
                         }}
-                        onChange={(birthDateValue) => {
-                            setBirthDate(new Date(birthDateValue).toDateString());
-                            errors.dateBirth = false;
-                        }}
-                        value={birthDate}
-                        views={["year", "month", "day"]}
+                        name="dateBirth"
+                        render={({ field }) => (
+                            <DatePicker
+                                renderInput={(params) => {
+                                    return <TextField id="date-of-birth" {...params} />;
+                                }}
+                                onChange={(e) => {
+                                    field.onChange(e.target.value);
+                                }}
+                                value={field.value}
+                                views={["year", "month", "day"]}
+                                {...field}
+                            />
+                        )}
                     />
                     {errors.dateBirth && <p className="error-text">Date of birth required</p>}
 
                     <label htmlFor="start-date">Start Date</label>
-                    <DatePicker
-                        renderInput={(params) => {
-                            return (
-                                <TextField
-                                    id="start-date"
-                                    {...params}
-                                    {...register("startDate", { required: true, value: { startingDate } })}
-                                />
-                            );
+                    <Controller
+                        control={control}
+                        rules={{
+                            required: true,
                         }}
-                        onChange={(startDateValue) => {
-                            setStartingDate(new Date(startDateValue).toDateString());
-                            errors.startDate = false;
-                        }}
-                        value={startingDate}
-                        views={["year", "month", "day"]}
+                        name="startDate"
+                        render={({ field }) => (
+                            <DatePicker
+                                renderInput={(params) => {
+                                    return <TextField id="start-date" {...params} />;
+                                }}
+                                onChange={(e) => {
+                                    field.onChange(e.target.value);
+                                }}
+                                value={field.value}
+                                views={["year", "month", "day"]}
+                                {...field}
+                            />
+                        )}
                     />
                     {errors.startDate && <p className="error-text">Start date required</p>}
 
