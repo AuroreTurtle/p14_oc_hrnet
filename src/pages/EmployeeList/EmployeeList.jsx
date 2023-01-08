@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 // Component of the Material React Table library
 import MaterialReactTable from "material-react-table";
 
+import Card from "../../components/Card/Card";
+
 import "./EmployeeList.css";
 
 /**
@@ -58,8 +60,25 @@ function EmployeeList() {
         <main>
             <div id="employee-div" className="container container-table">
                 <h2>Current Employees</h2>
-                <div id="table-employees">
+                <div id="table-employees" className="version-desktop">
                     <MaterialReactTable columns={columns} data={employees} />
+                </div>
+
+                <div id="table-employees" className="version-mobile">
+                    {employees.map((employee) => (
+                        <Card
+                            key={`${employee.firstName + "-" + employee.lastName}`}
+                            firstName={employee.firstName}
+                            lastName={employee.lastName}
+                            dateOfBirth={employee.dateOfBirth}
+                            startDate={employee.startDate}
+                            street={employee.street}
+                            city={employee.city}
+                            state={employee.state}
+                            zipCode={employee.zipCode}
+                            department={employee.department}
+                        />
+                    ))}
                 </div>
             </div>
         </main>

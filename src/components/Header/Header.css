@@ -21,11 +21,6 @@ nav{
     font-size: 24px;
 }
 
-.header-desktop{
-    display: none;
-    visibility: hidden;
-}
-
 /* Tablet */
 @media (min-width: 768px){
     .header-logo{
@@ -46,16 +41,6 @@ nav{
     .header-link{
         width: 182px;
         font-size: 18px;
-    }
-
-    .header-desktop{
-        display: block;
-        visibility: visible;
-    }
-
-    .header-mobile{
-        display: none;
-        visibility: hidden;
     }
 }
 

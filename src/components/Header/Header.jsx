@@ -13,19 +13,19 @@ function Header() {
                 <img className="header-logo" src={LogoHRnet} alt="Logo HRnet" />
                 <h1 className="sr-only">HRnet</h1>
             </Link>
-            
+
             <nav>
-                <Link to="/create-employee" className="link header-link header-desktop">
+                <Link to="/create-employee" className="link header-link version-desktop">
                     Create Employees
                 </Link>
-                <Link to="/create-employee" className="link header-link header-mobile">
+                <Link to="/create-employee" className="link header-link version-mobile">
                     <i className="fa-solid fa-user-plus"></i>
                 </Link>
 
-                <Link to="/employee-list" className="link header-link header-desktop">
+                <Link to="/employee-list" className="link header-link version-desktop">
                     View Current Employees
                 </Link>
-                <Link to="/employee-list" className="link header-link header-mobile">
+                <Link to="/employee-list" className="link header-link version-mobile">
                     <i className="fa-solid fa-users"></i>
                 </Link>
             </nav>
