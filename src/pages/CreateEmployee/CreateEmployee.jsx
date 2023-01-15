@@ -213,8 +213,8 @@ function CreateEmployee() {
                                     message: "City required",
                                 },
                                 pattern: {
-                                    value: /^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ-]+$/,
-                                    message: "Don't use a number or special characters",
+                                    value: /^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'-\s]+$/,
+                                    message: "Don't use a number, special characters",
                                 },
                                 minLength: {
                                     value: 2,
