@@ -1,8 +1,11 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 
 // Component of the Material React Table library
 import MaterialReactTable from "material-react-table";
+
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 import Card from "../../components/Card/Card";
 
@@ -14,6 +17,7 @@ import "./EmployeeList.css";
  */
 function EmployeeList() {
     const employees = useSelector((state) => state.employeeList.employee);
+    const [inputValue, setInputValue] = useState("");
     const columns = useMemo(
         () => [
             {
@@ -65,20 +69,50 @@ function EmployeeList() {
                 </div>
 
                 <div id="table-employees" className="version-mobile">
-                    {employees.map((employee) => (
-                        <Card
-                            key={`${employee.firstName + "-" + employee.lastName}`}
-                            firstName={employee.firstName}
-                            lastName={employee.lastName}
-                            dateOfBirth={employee.dateOfBirth}
-                            startDate={employee.startDate}
-                            street={employee.street}
-                            city={employee.city}
-                            state={employee.state}
-                            zipCode={employee.zipCode}
-                            department={employee.department}
-                        />
-                    ))}
+                    <Autocomplete
+                        options={employees}
+                        getOptionLabel={(option) => option.firstName}
+                        renderOption={(props, option) => {
+                            return (
+                                <li {...props} key={`${option.firstName + "-" + option.lastName}`}>
+                                    {option.firstName}
+                                </li>
+                            );
+                        }}
+                        onChange={(e) => setInputValue(e.target.innerText)}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+                    {inputValue === undefined
+                        ? employees.map((employee) => (
+                              <Card
+                                  key={`${employee.firstName + "-" + employee.lastName}`}
+                                  firstName={employee.firstName}
+                                  lastName={employee.lastName}
+                                  dateOfBirth={employee.dateOfBirth}
+                                  startDate={employee.startDate}
+                                  street={employee.street}
+                                  city={employee.city}
+                                  state={employee.state}
+                                  zipCode={employee.zipCode}
+                                  department={employee.department}
+                              />
+                          ))
+                        : employees
+                              .filter((employee) => employee.firstName.includes(inputValue))
+                              .map((employee) => (
+                                  <Card
+                                      key={`${employee.firstName + "-" + employee.lastName}`}
+                                      firstName={employee.firstName}
+                                      lastName={employee.lastName}
+                                      dateOfBirth={employee.dateOfBirth}
+                                      startDate={employee.startDate}
+                                      street={employee.street}
+                                      city={employee.city}
+                                      state={employee.state}
+                                      zipCode={employee.zipCode}
+                                      department={employee.department}
+                                  />
+                              ))}
                 </div>
             </div>
         </main>
