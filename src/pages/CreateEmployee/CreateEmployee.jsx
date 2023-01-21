@@ -147,7 +147,7 @@ function CreateEmployee() {
                         render={({ field }) => (
                             <DatePicker
                                 renderInput={(params) => {
-                                    return <TextField id="date-of-birth" {...params} />;
+                                    return <TextField id="date-of-birth" {...params} fullWidth />;
                                 }}
                                 onChange={(e) => {
                                     field.onChange(e.target.value);
@@ -170,7 +170,7 @@ function CreateEmployee() {
                         render={({ field }) => (
                             <DatePicker
                                 renderInput={(params) => {
-                                    return <TextField id="start-date" {...params} />;
+                                    return <TextField id="start-date" {...params} fullWidth />;
                                 }}
                                 onChange={(e) => {
                                     field.onChange(e.target.value);
