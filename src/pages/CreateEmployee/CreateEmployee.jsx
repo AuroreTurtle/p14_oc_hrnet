@@ -58,8 +58,8 @@ function CreateEmployee() {
         const zipCode = document.getElementById("zip-code");
 
         const employee = {
-            firstName: firstName.value,
-            lastName: lastName.value,
+            firstName: firstName.value[0].toUpperCase() + firstName.value.slice(1).toLowerCase(),
+            lastName: lastName.value.toUpperCase(),
             dateOfBirth: birthDate.value,
             startDate: startingDate.value,
             department: departmentName,
