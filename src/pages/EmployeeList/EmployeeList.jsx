@@ -60,6 +60,11 @@ function EmployeeList() {
         []
     );
 
+    // To remove duplicate options for the mobile version
+    const optionsSet = new Set();
+    employees.forEach((option) => optionsSet.add(option.firstName));
+    const onlyOption = [...optionsSet].map((option) => ({ firstName: option }));
+
     return (
         <main>
             <div id="employee-div" className="container container-table">
@@ -70,8 +75,9 @@ function EmployeeList() {
 
                 <div id="table-employees" className="version-mobile">
                     <Autocomplete
-                        options={employees}
+                        options={onlyOption}
                         getOptionLabel={(option) => option.firstName}
+                        isOptionEqualToValue={(option, value) => option.value === value.value}
                         renderOption={(props, option) => {
                             return (
                                 <li {...props} key={`${option.firstName + "-" + option.lastName}`}>
@@ -80,8 +86,9 @@ function EmployeeList() {
                             );
                         }}
                         onChange={(e) => setInputValue(e.target.innerText)}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params) => <TextField {...params} placeholder="Search a firstname" />}
                     />
+
                     {inputValue === undefined
                         ? employees.map((employee) => (
                               <Card
