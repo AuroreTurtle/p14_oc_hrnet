@@ -70,7 +70,6 @@ function CreateEmployee() {
         };
 
         dispatch(createEmployee([...employees, employee]));
-        console.log(employees);
 
         setModalVisible(true);
     };
