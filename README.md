@@ -37,3 +37,6 @@ Please follow the steps below.
 4. Open a terminal in VSCode
 5. In the terminal, type `npm install` to install all dependencies
 6. When all dependencies are installed, type `npm start` to run the project
+
+## Link
+https://p14-oc-hrnet.vercel.app/
